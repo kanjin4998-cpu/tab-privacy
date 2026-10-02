@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Privacy",
+  "version": "1.0.0",
+  "minimum_chrome_version": "111",
+  "description": "Your per-site control over page visibility and window focus signals.",
+  "permissions": ["activeTab", "scripting"],
+  "optional_host_permissions": ["http://*/*", "https://*/*"],
+  "action": {"default_popup": "popup.html", "default_title": "Tab Privacy"}
+}
