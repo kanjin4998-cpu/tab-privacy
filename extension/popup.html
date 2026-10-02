@@ -1,3 +1,25 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tab Privacy</title><link rel="stylesheet" href="popup.css"></head>
-<body><header><span class="mark">◉</span><span>TAB PRIVACY</span></header><h1>Your tabs.<br>Your business.</h1><p id="site">Checking this site…</p><p id="status" role="status" aria-live="polite"></p><button id="toggle" disabled>Loading…</button><button id="reload" class="secondary" hidden>Reload this tab to apply</button><p class="note">Changes apply after reloading. Reload other open tabs on this site too. Save unfinished work first.</p><footer>On-device only · No analytics<br>Masks visibility signals, not all activity detection.</footer><script src="popup.js"></script></body></html>
+<body>
+<header><img src="icons/icon32.png" alt="" width="24" height="24"><span>TAB PRIVACY</span></header>
+<p id="site">Checking this site…</p>
+<p id="status" role="status" aria-live="polite"></p>
+
+<section>
+  <h2>Hide tab switching</h2>
+  <div class="seg" data-feature="protect" role="group" aria-label="Hide tab switching">
+    <button data-mode="off" disabled>Off</button><button data-mode="site" disabled>This site</button><button data-mode="all" disabled>All sites</button>
+  </div>
+</section>
+
+<section>
+  <h2>Screenshot &amp; copy button</h2>
+  <div class="seg" data-feature="tools" role="group" aria-label="Screenshot and copy button">
+    <button data-mode="off" disabled>Off</button><button data-mode="site" disabled>This site</button><button data-mode="all" disabled>All sites</button>
+  </div>
+</section>
+
+<button id="reload" class="secondary" hidden>Reload this tab to apply</button>
+<p class="note">The screenshot button asks for access to all sites because Chrome requires that for screenshots; it only appears where you choose. Hiding tab switching applies after a reload. Reload other open tabs on the site too, and save unfinished work first.</p>
+<footer>On-device only · No analytics<br>Masks visibility signals, not all activity detection.</footer>
+<script src="popup.js"></script></body></html>

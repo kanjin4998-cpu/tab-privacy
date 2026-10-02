@@ -1,10 +1,33 @@
 {
   "manifest_version": 3,
   "name": "Tab Privacy",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "minimum_chrome_version": "111",
-  "description": "Your per-site control over page visibility and window focus signals.",
-  "permissions": ["activeTab", "scripting"],
-  "optional_host_permissions": ["http://*/*", "https://*/*"],
-  "action": {"default_popup": "popup.html", "default_title": "Tab Privacy"}
+  "description": "Your per-site control over page visibility and window focus signals, plus a quick screenshot and copy tool.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "optional_host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Tab Privacy",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
 }
