@@ -6,8 +6,8 @@
 
 <label for="provider">AI service</label>
 <select id="provider">
-  <option value="anthropic">Claude (Anthropic)</option>
-  <option value="gemini">Gemini (Google)</option>
+  <option value="gemini">Gemini (Google), has a free tier</option>
+  <option value="anthropic">Claude (Anthropic), paid API credits</option>
 </select>
 
 <label for="key">API key</label>
@@ -25,6 +25,7 @@
 <section class="notes">
 <h2>Good to know</h2>
 <ul>
+<li><strong>Using your claude.ai Pro plan:</strong> Anthropic does not allow third-party tools to sign in with a Pro or Max subscription, and the API is billed separately. To use Claude without paying for API credits, choose <em>Screenshot area, then paste in Claude.ai</em> from the on-page button: it copies the screenshot and opens a new Claude chat for you to paste into.</li>
 <li><strong>Cost:</strong> Claude API use is billed per question to your Anthropic account, separate from a claude.ai subscription. Set a low monthly spend limit in the Anthropic console. Gemini has a free tier with usage limits.</li>
 <li><strong>Privacy:</strong> the screenshot (and page text if you tick that box) goes to the service you choose. Google may use free-tier Gemini data to improve its products, so avoid sensitive content there.</li>
 <li>Keep your key private. Anyone with it can spend your credit.</li>

@@ -75,6 +75,7 @@
     label('COPY'),
     menuItem(ICONS.area, 'Screenshot an area', () => selectArea(rect => copyImage(rect))),
     menuItem(ICONS.screen, 'Screenshot visible screen', () => copyImage(fullViewport())),
+    menuItem(ICONS.ask, 'Screenshot area, then paste in Claude.ai', () => selectArea(rect => screenshotForClaude(rect))),
     textItem,
     divider(),
     menuItem(ICONS.gear, 'AI settings', () => chrome.runtime.sendMessage({type: 'open-options'})),
@@ -131,13 +132,24 @@
   }
 
   // The ClipboardItem takes a promise so the clipboard write happens inside the user's click.
-  async function copyImage(rect) {
+  async function copyImage(rect, message) {
     host.style.visibility = 'hidden';
     const blob = captureCropped(rect).finally(() => { host.style.visibility = 'visible'; });
     try {
       await navigator.clipboard.write([new ClipboardItem({'image/png': blob})]);
-      say('Screenshot copied. Paste it anywhere.');
-    } catch (error) { say('Could not copy screenshot: ' + error.message, true); }
+      say(message || 'Screenshot copied. Paste it anywhere.');
+      return true;
+    } catch (error) {
+      say('Could not copy screenshot: ' + error.message, true);
+      return false;
+    }
+  }
+
+  // Free route that uses your own claude.ai plan: copy the screenshot, then open a new Claude chat to paste it into.
+  async function screenshotForClaude(rect) {
+    if (await copyImage(rect, 'Screenshot copied. Paste it into Claude with Cmd+V (Ctrl+V on Windows).')) {
+      chrome.runtime.sendMessage({type: 'open-url', url: 'https://claude.ai/new'});
+    }
   }
 
   function selectArea(onSelect) {

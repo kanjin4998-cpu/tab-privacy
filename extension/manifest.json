@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Tab Privacy",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "minimum_chrome_version": "111",
   "description": "Your per-site control over page visibility and focus signals, plus a screenshot, copy, and ask-AI tool.",
   "permissions": [

@@ -28,12 +28,15 @@ The on-page button also has an **ASK AI** section:
 - **Ask AI about selected text**: appears when you have text selected.
 - Tick **Also send the page text** to include the page's text (first 20,000 characters) with your first question.
 
+### Free options
+- **Gemini free tier (default):** open **AI settings**, keep **Gemini (Google)** selected, and paste a key from aistudio.google.com/apikey. The free tier has usage limits, and Google may use free-tier data to improve its products, so avoid sensitive content. The Gemini path has been checked against a mocked API only, not the live service. The default model is `gemini-2.5-flash`; type a different model name in the settings if it changes.
+- **Your claude.ai plan:** Anthropic does not allow third-party tools to sign in with a Pro or Max subscription, and the Claude API is billed separately. Instead use **Screenshot area, then paste in Claude.ai** from the button's menu: it copies the screenshot to your clipboard and opens a new Claude chat where you paste it with Cmd+V.
+- **Claude API (paid):** choose **Claude (Anthropic)** in AI settings and paste an API key from console.anthropic.com. Billed per question; set a low monthly spend limit there.
+
 ### One-time setup
 1. Click **AI settings** (in the popup, the button's menu, or the chat panel).
-2. Choose **Claude (Anthropic)** or **Gemini (Google)** and paste your own API key. Create one at console.anthropic.com/settings/keys or aistudio.google.com/apikey.
+2. Choose a service and paste your own API key.
 3. Click **Save and test**.
-
-Claude API use is billed per question to your Anthropic account (separate from a claude.ai subscription), so set a low monthly spend limit there. Gemini has a free tier with usage limits; Google may use free-tier data to improve its products, so avoid sensitive content. The default models are `claude-haiku-4-5-20251001` and `gemini-2.5-flash`; you can type a different model name in the settings. The Gemini path has not been tested against the live service.
 
 ## What it does
 At document start, a MAIN-world script reports `document.hidden = false`, `document.visibilityState = "visible"`, and `document.hasFocus() = true`, with legacy WebKit equivalents. Capture listeners suppress visibility events and window/document blur/focus events. Input and button focus events remain intact.

@@ -6,7 +6,7 @@ const PROVIDERS = {
   },
   gemini: {
     models: ['gemini-2.5-flash', 'gemini-2.5-pro'],
-    help: 'Create a key at aistudio.google.com/apikey. If a model name stops working, check Google’s current model list and type the new name.'
+    help: 'Free option: create a key at aistudio.google.com/apikey (as far as I know, no payment card is needed for the free tier). If a model name stops working, check Google’s current model list and type the new name.'
   }
 };
 const $ = id => document.getElementById(id);
@@ -26,7 +26,7 @@ async function save() {
 }
 
 (async () => {
-  const saved = await chrome.storage.local.get({provider: 'anthropic', apiKey: '', model: ''});
+  const saved = await chrome.storage.local.get({provider: 'gemini', apiKey: '', model: ''});
   provider.value = saved.provider;
   key.value = saved.apiKey;
   model.value = saved.model;

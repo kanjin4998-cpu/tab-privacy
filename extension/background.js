@@ -91,10 +91,10 @@ async function askGemini(settings, messages) {
 }
 
 async function ask(messages) {
-  const settings = await chrome.storage.local.get({provider: 'anthropic', apiKey: '', model: ''});
+  const settings = await chrome.storage.local.get({provider: 'gemini', apiKey: '', model: ''});
   if (!settings.apiKey) return {ok: false, code: 'no-key', error: 'Add your API key in the AI settings first.'};
   try {
-    const text = settings.provider === 'gemini' ? await askGemini(settings, messages) : await askAnthropic(settings, messages);
+    const text = settings.provider === 'anthropic' ? await askAnthropic(settings, messages) : await askGemini(settings, messages);
     return {ok: true, text};
   } catch (error) {
     return {ok: false, error: error.name === 'TimeoutError' ? 'The AI took too long to answer. Try again.' : error.message};
@@ -111,6 +111,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message?.type === 'ask' && Array.isArray(message.messages)) {
     ask(message.messages).then(sendResponse);
     return true;
+  }
+  if (message?.type === 'open-url' && message.url === 'https://claude.ai/new') {
+    chrome.tabs.create({url: message.url});
+    return;
   }
   if (message?.type === 'open-options') {
     chrome.runtime.openOptionsPage();
