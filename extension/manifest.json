@@ -1,12 +1,13 @@
 {
   "manifest_version": 3,
   "name": "Tab Privacy",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "minimum_chrome_version": "111",
-  "description": "Your per-site control over page visibility and window focus signals, plus a quick screenshot and copy tool.",
+  "description": "Your per-site control over page visibility and focus signals, plus a screenshot, copy, and ask-AI tool.",
   "permissions": [
     "activeTab",
-    "scripting"
+    "scripting",
+    "storage"
   ],
   "optional_host_permissions": [
     "<all_urls>"
@@ -29,5 +30,13 @@
     "32": "icons/icon32.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
+  },
+  "host_permissions": [
+    "https://api.anthropic.com/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
   }
 }

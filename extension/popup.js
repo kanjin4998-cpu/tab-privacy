@@ -94,6 +94,8 @@ for (const group of document.querySelectorAll('.seg')) {
   });
 }
 
+document.querySelector('#ai-settings').addEventListener('click', () => { chrome.runtime.openOptionsPage(); window.close(); });
+
 reload.addEventListener('click', async () => {
   try { await chrome.tabs.reload(tab.id); window.close(); }
   catch (error) { status.textContent = error.message; }

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tab Privacy · AI settings</title><link rel="stylesheet" href="options.css"></head>
+<body><main>
+<header><img src="icons/icon48.png" alt="" width="40" height="40"><h1>AI settings</h1></header>
+<p class="lead">The “Ask AI” buttons send your screenshot and question to an AI service, using <strong>your own API key</strong>. Nothing is sent until you press Ask. Your key stays on this device.</p>
+
+<label for="provider">AI service</label>
+<select id="provider">
+  <option value="anthropic">Claude (Anthropic)</option>
+  <option value="gemini">Gemini (Google)</option>
+</select>
+
+<label for="key">API key</label>
+<input id="key" type="password" autocomplete="off" spellcheck="false" placeholder="Paste your key">
+<p class="hint" id="keyhelp"></p>
+
+<label for="model">Model</label>
+<input id="model" list="models" spellcheck="false">
+<datalist id="models"></datalist>
+<p class="hint">Leave the suggestion in place unless you know you want another model.</p>
+
+<div class="row"><button id="save">Save</button><button id="test" class="secondary">Save and test</button></div>
+<p id="result" role="status" aria-live="polite"></p>
+
+<section class="notes">
+<h2>Good to know</h2>
+<ul>
+<li><strong>Cost:</strong> Claude API use is billed per question to your Anthropic account, separate from a claude.ai subscription. Set a low monthly spend limit in the Anthropic console. Gemini has a free tier with usage limits.</li>
+<li><strong>Privacy:</strong> the screenshot (and page text if you tick that box) goes to the service you choose. Google may use free-tier Gemini data to improve its products, so avoid sensitive content there.</li>
+<li>Keep your key private. Anyone with it can spend your credit.</li>
+</ul>
+</section>
+</main><script src="options.js"></script></body></html>
