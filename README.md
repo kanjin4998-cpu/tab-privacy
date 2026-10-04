@@ -29,7 +29,7 @@ The on-page button also has an **ASK AI** section:
 - Tick **Also send the page text** to include the page's text (first 20,000 characters) with your first question.
 
 ### Free options
-- **Gemini free tier (default):** open **AI settings**, keep **Gemini (Google)** selected, and paste a key from aistudio.google.com/apikey. The free tier has usage limits, and Google may use free-tier data to improve its products, so avoid sensitive content. The Gemini path has been checked against a mocked API only, not the live service. The default model is `gemini-2.5-flash`; type a different model name in the settings if it changes.
+- **Gemini free tier (default):** open **AI settings**, keep **Gemini (Google)** selected, and paste a key from aistudio.google.com/apikey. The free tier has usage limits, and Google may use free-tier data to improve its products, so avoid sensitive content. The Gemini path has been checked against a mocked API only, not the live service. The default model is `gemini-3.8-flash`; type a different model name in the settings if it changes.
 - **Your claude.ai plan:** Anthropic does not allow third-party tools to sign in with a Pro or Max subscription, and the Claude API is billed separately. Instead use **Screenshot area, then paste in Claude.ai** from the button's menu: it copies the screenshot to your clipboard and opens a new Claude chat where you paste it with Cmd+V.
 - **Claude API (paid):** choose **Claude (Anthropic)** in AI settings and paste an API key from console.anthropic.com. Billed per question; set a low monthly spend limit there.
 

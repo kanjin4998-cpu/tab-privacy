@@ -8,7 +8,7 @@ chrome.runtime.onStartup.addListener(() => {
   chrome.storage.local.setAccessLevel({accessLevel: 'TRUSTED_CONTEXTS'}).catch(() => {});
 });
 
-const DEFAULT_MODELS = {anthropic: 'claude-haiku-4-5-20251001', gemini: 'gemini-2.5-flash'};
+const DEFAULT_MODELS = {anthropic: 'claude-haiku-4-5-20251001', gemini: 'gemini-3.8-flash'};
 const SYSTEM_PROMPT = 'You are a helpful assistant built into a browser extension. The user may share a screenshot of part of their screen and, optionally, the text of the page. Explain what is shown, answer their question clearly and concisely, and say so when you are unsure. Use short paragraphs and lists. Reply in the language the user writes in.';
 
 // Takes a screenshot of the visible part of the sender's tab. Needs access to the site (granted when the tools are turned on).

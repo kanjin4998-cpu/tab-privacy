@@ -5,7 +5,7 @@ const PROVIDERS = {
     help: 'Create a key at console.anthropic.com/settings/keys. Haiku is the cheaper, faster choice.'
   },
   gemini: {
-    models: ['gemini-2.5-flash', 'gemini-2.5-pro'],
+    models: ['gemini-3.8-flash'],
     help: 'Free option: create a key at aistudio.google.com/apikey (as far as I know, no payment card is needed for the free tier). If a model name stops working, check Google’s current model list and type the new name.'
   }
 };
